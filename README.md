@@ -8,6 +8,6 @@
 1. Run `` make install ``  
   
 ## Clean build
-1. Run `` make clean ``  
+1. Run `` sudo make clean ``  
   
 Note:  Don't forget to install the XML template in the Zabbix Web UI
