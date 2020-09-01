@@ -1,0 +1,12 @@
+#!/bin/bash
+
+zabbixagentpath() {
+	read -p "Specify Zabbix configuration path [/etc/zabbix]: " zabpath
+	[[ -z "$zabpath" ]] && zabpath="/etc/zabbix"
+	echo $zabpath
+}
+
+echo "** Requires nvidia-smi"
+echo ""
+
+m4 -DINPATH=$(zabbixagentpath) Makefile.m4 > Makefile

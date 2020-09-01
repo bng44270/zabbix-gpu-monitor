@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2020-09-01T17:33:18Z</date>
+    <groups>
+        <group>
+            <name>HPC</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>GPU</template>
+            <name>GPU</name>
+            <groups>
+                <group>
+                    <name>HPC</name>
+                </group>
+            </groups>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>GPU</name>
+                    <key>gpu.discovery</key>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Temperature ({#LOCALGPU})</name>
+                            <key>gpuinfo[{#LOCALGPU},temperature.gpu]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GPU Utilization % ({#LOCALGPU})</name>
+                            <key>gpuinfo[{#LOCALGPU},utilization.gpu]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Memory Utilization % ({#LOCALGPU})</name>
+                            <key>gpuinfo[{#LOCALGPU},utilization.memory]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>GPU Users ({#LOCALGPU})</name>
+                            <key>gpuusers[{#LOCALGPU}]</key>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                        </item_prototype>
+                    </item_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Memory Utilization % ({#LOCALGPU})</name>
+                            <graph_items>
+                                <graph_item>
+                                    <color>1A7C11</color>
+                                    <item>
+                                        <host>GPU</host>
+                                        <key>gpuinfo[{#LOCALGPU},utilization.memory]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>Temperature ({#LOCALGPU})</name>
+                            <graph_items>
+                                <graph_item>
+                                    <color>1A7C11</color>
+                                    <item>
+                                        <host>GPU</host>
+                                        <key>gpuinfo[{#LOCALGPU},temperature.gpu]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>Utilization ({#LOCALGPU})</name>
+                            <graph_items>
+                                <graph_item>
+                                    <color>1A7C11</color>
+                                    <item>
+                                        <host>GPU</host>
+                                        <key>gpuinfo[{#LOCALGPU},utilization.gpu]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+        </template>
+    </templates>
+</zabbix_export>
