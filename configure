@@ -6,7 +6,6 @@ zabbixagentpath() {
 	echo $zabpath
 }
 
-echo "** Requires nvidia-smi"
-echo ""
+[[ -z "$(which nvidia-smi)" ]] && echo "WARNING:  nvidia-smi not found"
 
 m4 -DINPATH=$(zabbixagentpath) Makefile.m4 > Makefile
