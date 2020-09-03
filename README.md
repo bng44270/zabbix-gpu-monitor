@@ -5,7 +5,7 @@
 2. Run `` make ``  
   
 ## Install
-1. Run `` make install ``  
+1. Run `` sudo make install ``  
   
 ## Clean build
 1. Run `` make clean ``  
